@@ -15,7 +15,7 @@ use App\Http\Controllers\Api\LocationController;
 use App\Http\Controllers\Api\InvitationController;
 use App\Http\Controllers\Api\GroupController;
 
-// Rotas para User
+// Routes for User
 Route::prefix('/v1')->group(function () {
     Route::get('/users', [UserController::class, 'index']);
     Route::post('/users', [UserController::class, 'store']);
@@ -24,7 +24,7 @@ Route::prefix('/v1')->group(function () {
     Route::delete('/users/{id}', [UserController::class, 'destroy']);
 });
 
-// Rotas para GameMatch
+// Routes for GameMatch
 Route::prefix('/v1')->group(function () {
     Route::get('/games', [GameMatchController::class, 'index']);
     Route::post('/games', [GameMatchController::class, 'store']);
@@ -33,7 +33,7 @@ Route::prefix('/v1')->group(function () {
     Route::delete('/games/{gamematch}', [GameMatchController::class, 'destroy']);
 });
 
-// Rotas para Team
+// Routes for Team
 Route::prefix('/v1')->group(function () {
     Route::get('/teams', [TeamController::class, 'index']);
     Route::post('/teams', [TeamController::class, 'store']);
@@ -42,7 +42,7 @@ Route::prefix('/v1')->group(function () {
     Route::delete('/teams/{team}', [TeamController::class, 'destroy']);
 });
 
-// Rotas para Player
+// Routes for Player
 Route::prefix('/v1')->group(function () {
     Route::get('/players', [PlayerController::class, 'index']);
     Route::post('/players', [PlayerController::class, 'store']);
@@ -51,7 +51,7 @@ Route::prefix('/v1')->group(function () {
     Route::delete('/players/{player}', [PlayerController::class, 'destroy']);
 });
 
-// Rotas para Participation
+// Routes for Participation
 Route::prefix('/v1')->group(function () {
     Route::get('/participations', [ParticipationController::class, 'index']);
     Route::post('/participations', [ParticipationController::class, 'store']);
@@ -60,7 +60,7 @@ Route::prefix('/v1')->group(function () {
     Route::delete('/participations/{participation}', [ParticipationController::class, 'destroy']);
 });
 
-// Rotas para SystemRole
+// Routes for SystemRole
 Route::prefix('/v1')->group(function () {
     Route::get('/systemroles', [SystemRoleController::class, 'index']);
     Route::post('/systemroles', [SystemRoleController::class, 'store']);
@@ -69,7 +69,7 @@ Route::prefix('/v1')->group(function () {
     Route::delete('/systemroles/{systemrole}', [SystemRoleController::class, 'destroy']);
 });
 
-// Rotas para Position
+// Routes for Position
 Route::prefix('/v1')->group(function () {
     Route::get('/positions', [PositionController::class, 'index']);
     Route::post('/positions', [PositionController::class, 'store']);
@@ -78,7 +78,7 @@ Route::prefix('/v1')->group(function () {
     Route::delete('/positions/{position}', [PositionController::class, 'destroy']);
 });
 
-// Rotas para Phone
+// Routes for Phone
 Route::prefix('/v1')->group(function () {
     Route::get('/phones', [PhoneController::class, 'index']);
     Route::post('/phones', [PhoneController::class, 'store']);
@@ -87,7 +87,7 @@ Route::prefix('/v1')->group(function () {
     Route::delete('/phones/{phone}', [PhoneController::class, 'destroy']);
 });
 
-// Rotas para Location
+// Routes for Location
 Route::prefix('/v1')->group(function () {
     Route::get('/locations', [LocationController::class, 'index']);
     Route::post('/locations', [LocationController::class, 'store']);
@@ -96,7 +96,7 @@ Route::prefix('/v1')->group(function () {
     Route::delete('/locations/{location}', [LocationController::class, 'destroy']);
 });
 
-// Rotas para Invitation
+// Routes for Invitation
 Route::prefix('/v1')->group(function () {
     Route::get('/invitations', [InvitationController::class, 'index']);
     Route::post('/invitations', [InvitationController::class, 'store']);
@@ -105,7 +105,7 @@ Route::prefix('/v1')->group(function () {
     Route::delete('/invitations/{invitation}', [InvitationController::class, 'destroy']);
 });
 
-// Rotas para Group
+// Routes for Group
 Route::prefix('/v1')->group(function () {
     Route::get('/groups', [GroupController::class, 'index']);
     Route::post('/groups', [GroupController::class, 'store']);
