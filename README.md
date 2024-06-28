@@ -17,7 +17,7 @@
 
 
    This project is under development and will be built using Vue.js for the front-end and Laravel for the back-end.
-   To follow the workflow, click **[here](https://github.com/brunoopetri/footy108/projects?query=is%3Aopen)**.
+   To follow the workflow, click **[here](https://github.com/users/brunoopetri/projects/5)**.
 
 
 ### Main entities of the system:
