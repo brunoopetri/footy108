@@ -28,12 +28,8 @@ return new class extends Migration
             // User password
             $table->string('password');
 
-            // Foreign key for role
-            $table->string('role');
-            $table->foreign('role')->references('role')->on('systemroles');
-
-            /* Foreign key for role
-            $table->foreignId('systemrole_id')->constrained('systemroles'); */
+            // User role
+            $table->enum('role', ['player', 'admin', 'developer'])->default('user');
 
             // Laravel's built-in remember token for "remember me" functionality
             $table->rememberToken();

@@ -19,18 +19,18 @@ use App\Http\Controllers\Api\GroupController;
 Route::prefix('/v1')->group(function () {
     Route::get('/users', [UserController::class, 'index']);
     Route::post('/users', [UserController::class, 'store']);
-    Route::get('/users/{id}', [UserController::class, 'show']);
-    Route::put('/users/{id}', [UserController::class, 'update']);
-    Route::delete('/users/{id}', [UserController::class, 'destroy']);
+    Route::get('/users/{user}', [UserController::class, 'show']); // Alterado {id} para {user}
+    Route::put('/users/{user}', [UserController::class, 'update']); // Alterado {id} para {user}
+    Route::delete('/users/{user}', [UserController::class, 'destroy']); // Alterado {id} para {user}
 });
 
 // Routes for GameMatch
 Route::prefix('/v1')->group(function () {
-    Route::get('/games', [GameMatchController::class, 'index']);
-    Route::post('/games', [GameMatchController::class, 'store']);
-    Route::get('/games/{gamematch}', [GameMatchController::class, 'show']);
-    Route::put('/games/{gamematch}', [GameMatchController::class, 'update']);
-    Route::delete('/games/{gamematch}', [GameMatchController::class, 'destroy']);
+    Route::get('/gamematches', [GameMatchController::class, 'index']);
+    Route::post('/gamematches', [GameMatchController::class, 'store']);
+    Route::get('/gamematches/{gamematch}', [GameMatchController::class, 'show']);
+    Route::put('/gamematches/{gamematch}', [GameMatchController::class, 'update']);
+    Route::delete('/gamematches/{gamematch}', [GameMatchController::class, 'destroy']);
 });
 
 // Routes for Team

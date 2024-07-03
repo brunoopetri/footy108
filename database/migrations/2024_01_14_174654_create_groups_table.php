@@ -14,6 +14,11 @@ return new class extends Migration
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+
+            // Foreign key for users
+            $table->foreignId('user_id')->constrained('users');
+            
+            // Timestamps for created_at and updated_at
             $table->timestamps();
 
             // Soft Deletes

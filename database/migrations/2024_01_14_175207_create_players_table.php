@@ -18,10 +18,7 @@ return new class extends Migration
             $table->foreignId('team_id')->constrained('teams');
 
             // Foreign key for users
-            $table->foreignId('user_id')
-                  ->constrained('users')
-                  ->where('role', 'player'); // Restriction for users with 'player' role
-
+            $table->foreignId('user_id')->constrained('users');
             // Foreign key for positions
             $table->foreignId('position_id')->constrained('positions');
 

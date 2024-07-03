@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Group;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -30,7 +31,14 @@ class GroupController extends Controller
         // Data validation
         $request->validate([
             'name' => 'required|max:255',
+            'user_id' => 'required|exists:users,id',
         ]);
+
+        // Ensure the user is a player
+        $user = User::find($request->user_id);
+        if ($user->role !== 'player') {
+            return response()->json(['message' => 'User must be a player'], 422);
+        }
 
         // Create group
         $group = Group::create($request->all());
@@ -61,7 +69,14 @@ class GroupController extends Controller
         // Data validation
         $request->validate([
             'name' => 'required|max:255',
+            'user_id' => 'required|exists:users,id',
         ]);
+
+        // Ensure the user is a player
+        $user = User::find($request->user_id);
+        if ($user->role !== 'player') {
+            return response()->json(['message' => 'User must be a player'], 422);
+        }
 
         // Update group
         $group->update($request->all());

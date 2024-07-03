@@ -22,61 +22,44 @@ class SystemRoleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'role' => 'required|unique:systemroles',
+            'role' => 'required|unique:system_roles',
         ]);
 
         $systemRole = SystemRole::create($request->all());
 
-        return response()->json($systemRole, 201);
+        return response()->json(['message' => 'Role created successfully','data' => $systemRole], 201);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(SystemRole $systemRole)
     {
-        $systemRole = SystemRole::find($id);
-
-        if (is_null($systemRole)) {
-            return response()->json(['message' => 'Role not found'], 404);
-        }
-
         return response()->json($systemRole, 200);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, SystemRole $systemRole)
     {
         $request->validate([
-            'role' => 'required|unique:systemroles,role,',
+            'role' => 'required|unique:system_roles,role,' . $systemRole->id,
         ]);
-
-        $systemRole = SystemRole::find($id);
-
-        if (is_null($systemRole)) {
-            return response()->json(['message' => 'Role not found'], 404);
-        }
 
         $systemRole->update($request->all());
 
-        return response()->json($systemRole, 200);
+        return response()->json(['message' => 'Role updated successfully','data' => $systemRole], 200);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(SystemRole $systemRole)
     {
-        $systemRole = SystemRole::find($id);
-
-        if (is_null($systemRole)) {
-            return response()->json(['message' => 'Role not found'], 404);
-        }
 
         $systemRole->delete();
 
-        return response()->json(null, 204);
+        return response()->json(['message' => 'Role deleted successfully'], 204);
     }
 }

@@ -34,7 +34,7 @@ class UserController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:6',
-            'role' => 'required|exists:systemroles,role',
+            'role' => 'required|in:player,admin,developer',
         ]);
 
         // Create user
@@ -73,7 +73,7 @@ class UserController extends Controller
             'name' => 'required|max:255',
             'email' => ['required', 'email', Rule::unique('users')->ignore($user->id)],
             'password' => 'sometimes|min:6',
-            'role' => 'required|exists:systemroles,role',
+            'role' => 'required|in:player,admin,developer',
         ]);
 
         // Update user
@@ -101,4 +101,5 @@ class UserController extends Controller
         return response()->json(['message' => 'User deleted successfully'], 204);
     }
 }
+
 
