@@ -35,10 +35,10 @@ class PlayerController extends Controller
             'position_id' => 'required|exists:positions,id',
         ]);
 
-        // Verificar se o usuário tem a função 'player'
+        // Verificar se o usuário tem a função 'admin' ou 'player'
         $user = User::find($request->user_id);
-        if ($user && $user->role !== 'player') {
-            return response()->json(['message' => 'User does not have the role of player'], 403);
+        if ($user && !in_array($user->systemroles->role, ['admin', 'player'])) {
+            return response()->json(['message' => 'User does not have the role of admin or player'], 403);
         }
 
         // Create player
@@ -74,10 +74,10 @@ class PlayerController extends Controller
             'position_id' => 'required|exists:positions,id',
         ]);
 
-        // Verificar se o usuário tem a função 'player'
+        // Verificar se o usuário tem a função 'admin' ou 'player'
         $user = User::find($request->user_id);
-        if ($user && $user->role !== 'player') {
-            return response()->json(['message' => 'User does not have the role of player'], 403);
+        if ($user && !in_array($user->systemroles->role, ['admin', 'player'])) {
+            return response()->json(['message' => 'User does not have the role of admin or player'], 403);
         }
 
         // Update player
