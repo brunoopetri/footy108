@@ -26,7 +26,7 @@ class User extends Model
         'name',
         'email',
         'password',
-        'role',
+        'role_id',
     ];
 
     /**
@@ -61,7 +61,7 @@ class User extends Model
      */
     public function systemroles()
     {
-        return $this->belongsToMany(SystemRole::class);
+        return $this->belongsTo(SystemRole::class);
     }
 
     /**
